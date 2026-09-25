@@ -63,6 +63,9 @@ The initial release established the 5-page semantic HTML5 website structure (`<h
 - Implemented HTML5 `<picture>` tags inside `index.html` with responsive `max-width: 100%` scaling.
 - Included full business proposal documentation (`Proposal_QuickStopHairSalon.docx`) detailing organization goals, target market, budget, and technical specifications.
 
+### F. Image 
+Inserted an image on the Home page 
+
 ---
 
 ## 3. Repository File Hierarchy

@@ -1,90 +1,69 @@
 # Quick-Stop Hair Salon | WEDE5020 POE
 
-**Student Name:** Sean Vakatsha  
-**Student ID:** ST10539242  
-**Module:** WEDE5020 - Web Development  
-**Project:** Quick-Stop Hair Salon Website  
+**Student:** Sean Vakatsha
+**Student ID:** ST10539242
+**Module:** WEDE5020 - Web Development
+**Project:** Quick-Stop Hair Salon website
 
----
+**Source repository:** [Epic-Sean1/Website – QuickStopHairSalon](https://github.com/Epic-Sean1/Website/tree/main/QuickStopHairSalon)
+**Live website:** Not currently available. The previously supplied deployment URL returned a 404 when checked on 2 November 2026.
 
-# PART 1: Initial Website Structure & Project Overview
+## Project overview
 
-## 1. Project Introduction
-Quick-Stop Hair Salon is a multi-page web application designed to provide clients with convenient access to hair styling services, pricing menus, branch locations, and online appointment booking.
+Quick-Stop Hair Salon is a five-page website presenting salon information, services and prices, appointment enquiries, and contact details.
 
-## 2. Core Page Architecture
-The initial release established the 5-page semantic HTML5 website structure (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`):
-- **`index.html`**: Main landing page with salon highlights, featured services, and call-to-action banners.
-- **`about.html`**: Background story, mission statement, and core values of the salon.
-- **`services.html`**: Service catalog detailing pricing for cuts, braids, and treatments.
-- **`enquiry.html`**: Interactive booking form for scheduling appointments or requesting custom quotes.
-- **`contact.html`**: Contact numbers, operating hours, and physical branch locations.
+## Pages
 
-## 3. Initial Design & Asset Setup
-- **Styling (`css/style.css`)**: Core CSS styling rules, color variables, typographic scale, and structural layout containers.
-- **Media (`images/`)**: Visual assets and salon imagery.
-- **Proposals (`Proposals/`)**: Project proposal document outlining technical scope, target market, and budget specifications.
+- `index.html` — homepage and salon highlights
+- `about.html` — salon background and values
+- `services.html` — hairstyle and hair treatment menu with prices
+- `enquiry.html` — appointment enquiry form
+- `contact.html` — branch details and general message form
 
----
+## Features
 
-# PART 2: Feedback Resolution & Multi-File Changelog
+- Shared responsive layout and navigation, styled with `css/style.css`.
+- Service cards with images, category labels, and prices.
+- Client-side form checks for required fields, a valid email address, a 10-digit South African phone number, and messages of at least 10 characters. Enquiry notes are optional; if entered, they must contain at least 10 non-whitespace characters.
+- Inline validation feedback for invalid fields.
+- `robots.txt` and `sitemap.xml` for crawler guidance. Their sitemap URLs use the expected GitHub Pages path; update and verify them after enabling deployment.
 
-## 1. Response to Part 1 Feedback
-* **Lecturer Feedback Received:** *"No evidence for Github"*
-* **Action Taken & Resolution:**
-  * Created and configured a public GitHub repository (`QuickStopHairSalon`).
-  * Structured all project files into a clean workspace (`/css`, `/images`, `/Proposals`, and root HTML files).
-  * Documented all incremental code updates across multiple files using distinct Git commit messages to provide systematic proof of version control.
+The forms currently demonstrate validation and confirmation feedback only. They do not send or store submissions because the project has no server-side form handler.
 
-## 2. Part 2 Incremental Development Updates
+Responsive layouts use CSS media queries [2]. The forms combine HTML constraints with client-side validation feedback [1].
 
-### A. Global CSS & Layout Optimization (`css/style.css`)
-- Applied a dark navy (`#1e293b`) and light background theme across all 5 HTML pages.
-- Built responsive navigation headers and clean card layouts using CSS Flexbox.
-- Implemented card elevation hover transitions (`transform: translateY(-5px)`).
-- Configured custom focus outlines (`:focus`) on form inputs for web accessibility.
-- Integrated `@media (max-width: 768px)` breakpoints to automatically stack grid cards and navigation items vertically on mobile devices.
-
-### B. Services Page Upgrades (`services.html`)
-- Added visual category badges (`Most Popular`, `Hair Health`, `Quick Express`) above service headings.
-- Formatted pricing output tags using dedicated `.price-tag` CSS rules.
-
-### C. Form Validation & Structure (`enquiry.html`)
-- Wrapped form inputs inside structured `.form-group` layout containers.
-- Added field validation (`required` attributes) and clear user placeholders.
-- Added an appointment date picker field (`<input type="date">`).
-
-### D. Location & Branch Expansion (`contact.html`)
-- Integrated branch identification badges (`Primary Hub`, `Mall Express`, `At-Location`).
-- Added a dedicated card for **Mobile & House Call Services**.
-- Formatted direct email enquiry information inside a centered card layout.
-
-### E. Media & Documentation Integration
-- Implemented HTML5 `<picture>` tags inside `index.html` with responsive `max-width: 100%` scaling.
-- Included full business proposal documentation (`Proposal_QuickStopHairSalon.docx`) detailing organization goals, target market, budget, and technical specifications.
-
-### F. Image 
-Inserted an image on the Home page 
-
----
-
-## 3. Repository File Hierarchy
+## Repository structure
 
 ```text
 QuickStopHairSalon/
-├── Chosen Proposal/
-│   └── Proposal_QuickStopHairSalon.docx
-├── Proposals/
-│   ├── QuickStopHairSalon.docx
-│   └── WeBake.docx
-├── Research/
 ├── css/
 │   └── style.css
 ├── images/
-│   └── salon.jpeg
-├── index.html
+│   ├── box-braids.jpeg
+│   ├── buzz-cut.jpeg
+│   ├── buzz-fade.jpeg
+│   ├── cornrows.jpeg
+│   ├── deep-hair-conditioning.jpeg
+│   ├── knotless-braids.jpeg
+│   ├── protein-restoration.jpeg
+│   ├── salon.jpeg
+│   ├── scalp-treatment.jpeg
+│   ├── taper-fade.jpeg
+│   └── twists.jpeg
 ├── about.html
-├── services.html
-├── enquiry.html
 ├── contact.html
-└── README.md
+├── enquiry.html
+├── index.html
+├── README.md
+├── robots.txt
+├── script.js
+├── services.html
+└── sitemap.xml
+```
+
+Proposal documents, a `Research/` directory, and responsive testing screenshots are not included in the current repository tree.
+
+## References
+
+1. MDN Web Docs, “Client-side form validation.” https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation
+2. MDN Web Docs, “Using media queries.” https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using

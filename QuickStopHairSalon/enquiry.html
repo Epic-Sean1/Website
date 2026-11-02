@@ -24,7 +24,7 @@
         <h2>Appointment & Booking Enquiry</h2>
         <p>Submit your details below to schedule an in-salon appointment or request an at-location visit.</p>
 
-        <form action="#" method="post">
+        <form id="enquiryForm" action="#" method="post">
             <div class="form-group">
                 <label for="fullname">Full Name:</label>
                 <input type="text" id="fullname" name="fullname" required placeholder="e.g. Jane Doe">
@@ -58,7 +58,7 @@
 
             <div class="form-group">
                 <label for="message">Additional Notes / Special Requirements:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Let us know your preferred time or specific requirements..."></textarea>
+                <textarea id="message" name="message" rows="4" minlength="10" placeholder="Optional: enter at least 10 characters for your preferred time or requirements."></textarea>
             </div>
 
             <button type="submit">Submit Enquiry</button>
@@ -68,5 +68,6 @@
     <footer>
         <p>&copy; 2026 Quick-Stop Hair Salon. All Rights Reserved.</p>
     </footer>
+   <script src="script.js"></script>
 </body>
 </html>

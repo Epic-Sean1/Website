@@ -1,163 +1,415 @@
-/* 1. CSS Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* 2. Base Typography & Background */
+:root {
+    --ink: #252b2a;
+    --muted: #64706d;
+    --surface: #ffffff;
+    --page: #f6f5f1;
+    --accent: #a76d56;
+    --accent-dark: #89543f;
+    --accent-light: #f2e7e0;
+    --line: #e5e3dd;
+    --shadow: 0 8px 24px rgba(37, 43, 42, 0.07);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333333;
-  background-color: #f8fafc;
-  line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
 }
 
-/* 3. Header & Navigation */
 header {
-  background-color: #1e293b;
-  color: #ffffff;
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem max(5vw, 1.25rem);
+    background: var(--ink);
+    color: var(--surface);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
 }
 
 header h1 {
-  font-size: 1.5rem;
-  color: #3b82f6;
+    color: #f3d9c9;
+    font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+    line-height: 1.2;
 }
 
-nav {
-  display: flex;
-  gap: 15px;
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    list-style: none;
 }
 
 nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+    display: block;
+    padding: 0.45rem 0.7rem;
+    border-radius: 5px;
+    color: #f7f5f1;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
 }
 
 nav a:hover,
-nav a:focus {
-  color: #3b82f6;
+nav a:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+    color: #f3d9c9;
 }
 
-/* 4. Layout & Cards */
+main {
+    width: min(1120px, 90%);
+    flex: 1;
+    margin: 0 auto;
+    padding: 3rem 0 3.5rem;
+}
+
+main > h2,
+main > p {
+    text-align: center;
+}
+
+h2,
+h3,
+h4 {
+    color: var(--ink);
+    line-height: 1.25;
+}
+
+main > h2,
+.hero h2 {
+    margin-bottom: 0.8rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+main > p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: var(--muted);
+}
+
+main section:not(.hero) {
+    margin: 2rem 0;
+}
+
+main section:not(.hero) h3 {
+    margin: 1.5rem 0 0.55rem;
+    font-size: 1.35rem;
+}
+
+main section:not(.hero) p {
+    color: var(--muted);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1.25rem 3rem;
+    margin: 0 0 3.5rem;
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.hero h2 {
+    align-self: end;
+    margin: 0;
+    color: var(--ink);
+}
+
+.hero p {
+    align-self: start;
+    color: var(--muted);
+}
+
+.hero picture {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+}
+
+.hero-image {
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.btn,
+button[type="submit"] {
+    display: inline-block;
+    width: fit-content;
+    border: 0;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--surface);
+    padding: 0.8rem 1.35rem;
+    font: inherit;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.btn:hover,
+button[type="submit"]:hover {
+    transform: translateY(-1px);
+    background: var(--accent-dark);
+    box-shadow: 0 5px 12px rgba(137, 84, 63, 0.2);
+}
+
+.btn:focus-visible,
+button[type="submit"]:focus-visible {
+    outline: 3px solid #d5a58e;
+    outline-offset: 3px;
+}
+
+.features {
+    margin-top: 0;
+}
+
+.features > h3 {
+    margin: 0 0 1.25rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.card-grid,
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    margin: 1.5rem auto;
 }
 
 .card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 20px;
-  border-radius: 8px;
-  flex: 1 1 280px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    flex: 1 1 280px;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: 0 4px 14px rgba(37, 43, 42, 0.045);
+    transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-/* 5. Responsive Image Support */
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.card h3,
+.card h4 {
+    margin: 0.55rem 0;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.price-tag {
+    margin-top: 1rem;
+    color: var(--ink) !important;
+}
+
+.service-image {
+    width: 100%;
+    height: 220px;
+    margin: 0 0 1rem;
+    border-radius: 7px;
+    background: var(--page);
+    object-fit: contain;
+}
+
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 15px auto;
-  border-radius: 8px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 8px;
 }
 
-/* 6. Form Controls (NEW FOR PART 2) */
 form {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  max-width: 600px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    max-width: 620px;
+    margin: 2rem auto;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
 }
 
 .form-group {
-  margin-bottom: 1.25rem;
+    margin-bottom: 1.15rem;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #1e293b;
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+    font-weight: 650;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-family: inherit;
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid #c9cbc5;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #929894;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  outline: 2px solid #3b82f6;
-  border-color: transparent;
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(167, 109, 86, 0.18);
 }
 
 button[type="submit"] {
-  background-color: #3b82f6;
-  color: #ffffff;
-  border: none;
-  padding: 0.85rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
+    width: 100%;
 }
 
-button[type="submit"]:hover {
-  background-color: #2563eb;
-}
-
-/* 7. Footer (NEW FOR PART 2) */
 footer {
-  background-color: #1e293b;
-  color: #94a3b8;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
+    margin-top: auto;
+    padding: 1.25rem 1rem;
+    background: var(--ink);
+    color: #e1e2dd;
+    text-align: center;
 }
 
-/* 8. Mobile Responsiveness */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
+@media (max-width: 760px) {
+    header {
+        position: static;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1rem 5%;
+        text-align: center;
+    }
 
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+    nav ul {
+        justify-content: center;
+        gap: 0.2rem;
+    }
 
-  .card-container {
-    flex-direction: column;
-  }
+    nav a {
+        padding: 0.4rem 0.55rem;
+    }
+
+    main {
+        width: min(100% - 2rem, 680px);
+        padding: 2rem 0 2.5rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+
+    .hero picture {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .hero .btn {
+        justify-self: start;
+    }
+
+    .card-grid,
+    .card-container {
+        gap: 1rem;
+    }
+
+    .card {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    header h1 {
+        font-size: 1.25rem;
+    }
+
+    nav ul {
+        gap: 0.1rem;
+    }
+
+    nav a {
+        padding: 0.35rem 0.4rem;
+        font-size: 0.88rem;
+    }
+
+    .hero {
+        padding: 1.25rem;
+    }
+
+    .hero-image {
+        height: 210px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }

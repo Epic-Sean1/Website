@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://epic-sean1.github.io/Website/QuickStopHairSalon/sitemap.xml
